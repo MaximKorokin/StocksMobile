@@ -13,6 +13,20 @@ namespace StocksMobile.Views
         public AboutPage()
         {
             InitializeComponent();
+            TestMethod();
+        }
+
+        private async void TestMethod()
+        {
+            try
+            {
+                Test.Text = "Waiting...";
+                Test.Text = await HttpRequest.Get("users/test");
+            }
+            catch(Exception ex)
+            {
+                Test.Text = ex.Message;
+            }
         }
     }
 }
