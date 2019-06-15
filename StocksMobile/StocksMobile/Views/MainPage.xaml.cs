@@ -22,6 +22,41 @@ namespace StocksMobile.Views
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+
+            InitialNavigation();
+        }
+
+        private void InitialNavigation()
+        {
+            if (CurrentUserManager.IsLoggedIn)
+            {
+                if (CurrentUserManager.CurrentUser.Role == "User")
+                    SetLoggedInUserState();
+                else
+                    SetLoggedInAdminState();
+            }
+            else
+            {
+                SetLoggedOutState();
+            }
+        }
+
+        public async void SetLoggedInUserState()
+        {
+            MenuPage.SetLoggedInUserItems();
+            await NavigateFromMenu((int)MenuItemType.Profile);
+        }
+
+        public async void SetLoggedInAdminState()
+        {
+            MenuPage.SetLoggedInUserItems();
+            await NavigateFromMenu((int)MenuItemType.Profile);
+        }
+
+        public async void SetLoggedOutState()
+        {
+            MenuPage.SetLoggedOutItems();
+            await NavigateFromMenu((int)MenuItemType.Login);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -38,6 +73,12 @@ namespace StocksMobile.Views
                         break;
                     case (int)MenuItemType.Login:
                         MenuPages.Add(id, new NavigationPage(new LoginPage()));
+                        break;
+                    case (int)MenuItemType.Profile:
+                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
+                        break;
+                    case (int)MenuItemType.EditProfile:
+                        MenuPages.Add(id, new NavigationPage(new EditProfilePage()));
                         break;
                 }
             }

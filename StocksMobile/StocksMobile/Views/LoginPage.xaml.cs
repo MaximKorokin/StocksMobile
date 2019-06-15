@@ -15,6 +15,7 @@ namespace StocksMobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        private MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         public LoginPage()
         {
             InitializeComponent();
@@ -27,14 +28,18 @@ namespace StocksMobile.Views
             try
             {
                 string requestStringUser = await HttpRequest.Post("users/authenticate", stringUser);
-                User requestUser = JsonConvert.DeserializeObject<User>(requestStringUser);
-                if (!string.IsNullOrWhiteSpace(requestUser.Token))
-                {
-                    Preferences.Set(Constants.CurrentUserKey, requestUser.Token);
-                    await DisplayAlert("Success", $"You have successfully logged in with user id: {requestUser.Id}", "Ok");
-                }
+                User responseUser = JsonConvert.DeserializeObject<User>(requestStringUser);
+                if (string.IsNullOrWhiteSpace(responseUser.Token))
+                    throw new Exception("Something went wrong");
+                CurrentUserManager.SetCurrentUser(responseUser);
+                if (responseUser.Role == "User")
+                    RootPage.SetLoggedInUserState();
+                else
+                    RootPage.SetLoggedInAdminState();
+
+                //await DisplayAlert("Success", $"You have successfully logged in with user id: {responseUser.Id}", "Ok");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 await DisplayAlert("Error", ex.Message, "Ok");
             }

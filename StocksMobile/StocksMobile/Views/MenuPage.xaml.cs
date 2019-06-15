@@ -12,19 +12,19 @@ namespace StocksMobile.Views
     [DesignTimeVisible(false)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-        List<HomeMenuItem> menuItems;
+        private MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        private List<HomeMenuItem> menuItems;
+
+        private static MenuPage instance;
+
         public MenuPage()
         {
             InitializeComponent();
+            instance = this;
+        }
 
-            menuItems = new List<HomeMenuItem>
-            {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
-                new HomeMenuItem {Id = MenuItemType.Login, Title="Login" },
-            };
-
+        public void SetMenuItems(params HomeMenuItem[] menuItems)
+        {
             ListViewMenu.ItemsSource = menuItems;
 
             ListViewMenu.SelectedItem = menuItems[0];
@@ -36,6 +36,32 @@ namespace StocksMobile.Views
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
                 await RootPage.NavigateFromMenu(id);
             };
+        }
+
+        public static void SetLoggedOutItems()
+        {
+            instance.SetMenuItems(
+                new HomeMenuItem { Id = MenuItemType.Login, Title = "Login" },
+                new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
+                );
+        }
+
+        public static void SetLoggedInUserItems()
+        {
+            instance.SetMenuItems(
+                new HomeMenuItem { Id = MenuItemType.Profile, Title = "Profile" },
+                new HomeMenuItem { Id = MenuItemType.Browse, Title = "My Stocks" },
+                new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
+                );
+        }
+
+        public static void SetLoggedInAdminItems()
+        {
+            instance.SetMenuItems(
+                new HomeMenuItem { Id = MenuItemType.Profile, Title = "Profile" },
+                new HomeMenuItem { Id = MenuItemType.Browse, Title = "Administrating" },
+                new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
+                );
         }
     }
 }

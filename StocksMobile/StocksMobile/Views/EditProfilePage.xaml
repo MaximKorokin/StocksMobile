@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="StocksMobile.Views.EditProfilePage">
+    <ContentPage.Content>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Language:" 
+                   Grid.Row="0" 
+                   Grid.Column="0"
+                   VerticalTextAlignment="Center" />
+            <Picker Grid.Row="0" 
+                   Grid.Column="1"
+                   x:Name="LanguagePicker">
+                <Picker.Items>
+                    <x:String>UA</x:String>
+                    <x:String>EN</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Name:" 
+                   Grid.Row="1" 
+                   Grid.Column="0"
+                   VerticalTextAlignment="Center" />
+            <Entry Grid.Row="1" 
+                   Grid.Column="1"
+                   x:Name="NameEntry" />
+
+            <Label Text="Old password:" 
+                   Grid.Row="2" 
+                   Grid.Column="0"
+                   VerticalTextAlignment="Center" />
+            <Entry IsPassword="True"
+                   Grid.Row="2" 
+                   Grid.Column="1"
+                   x:Name="OldPasswordEntry" />
+
+            <Label Text="New password:" 
+                   Grid.Row="3" 
+                   Grid.Column="0"
+                   VerticalTextAlignment="Center" />
+            <Entry IsPassword="True"
+                   Grid.Row="3" 
+                   Grid.Column="1"
+                   x:Name="NewPasswordEntry" />
+
+            <Label Text="Repeat new password:" 
+                   Grid.Row="4" 
+                   Grid.Column="0"
+                   VerticalTextAlignment="Center" />
+            <Entry IsPassword="True"
+                   Grid.Row="4" 
+                   Grid.Column="1"
+                   x:Name="RepeatOldPasswordEntry" />
+
+            <Button Text="Save" Grid.Row="5" Grid.ColumnSpan="2" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

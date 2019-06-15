@@ -9,6 +9,8 @@ namespace StocksMobile.Models
         Browse,
         About,
         Login,
+        Profile,
+        EditProfile
     }
     public class HomeMenuItem
     {

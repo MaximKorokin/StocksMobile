@@ -3,11 +3,13 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using StocksMobile.Services;
 using StocksMobile.Views;
+using StocksMobile.Models;
 
 namespace StocksMobile
 {
     public partial class App : Application
     {
+        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
         public App()
         {
