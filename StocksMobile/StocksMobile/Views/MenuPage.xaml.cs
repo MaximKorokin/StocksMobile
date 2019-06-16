@@ -50,7 +50,7 @@ namespace StocksMobile.Views
         {
             instance.SetMenuItems(
                 new HomeMenuItem { Id = MenuItemType.Profile, Title = "Profile" },
-                new HomeMenuItem { Id = MenuItemType.Browse, Title = "My Stocks" },
+                new HomeMenuItem { Id = MenuItemType.Stocks, Title = "My Stocks" },
                 new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
                 );
         }
@@ -59,7 +59,7 @@ namespace StocksMobile.Views
         {
             instance.SetMenuItems(
                 new HomeMenuItem { Id = MenuItemType.Profile, Title = "Profile" },
-                new HomeMenuItem { Id = MenuItemType.Browse, Title = "Administrating" },
+                new HomeMenuItem { Id = MenuItemType.Administrating, Title = "Administrating" },
                 new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
                 );
         }

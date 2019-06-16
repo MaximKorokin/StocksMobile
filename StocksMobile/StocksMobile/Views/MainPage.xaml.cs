@@ -21,7 +21,7 @@ namespace StocksMobile.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Items, (NavigationPage)Detail);
 
             InitialNavigation();
         }
@@ -49,7 +49,7 @@ namespace StocksMobile.Views
 
         public async void SetLoggedInAdminState()
         {
-            MenuPage.SetLoggedInUserItems();
+            MenuPage.SetLoggedInAdminItems();
             await NavigateFromMenu((int)MenuItemType.Profile);
         }
 
@@ -61,31 +61,64 @@ namespace StocksMobile.Views
 
         public async Task NavigateFromMenu(int id)
         {
-            if (!MenuPages.ContainsKey(id))
+            //if (!MenuPages.ContainsKey(id))
+            //{
+            //    switch (id)
+            //    {
+            //        case (int)MenuItemType.Browse:
+            //            MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+            //            break;
+            //        case (int)MenuItemType.About:
+            //            MenuPages.Add(id, new NavigationPage(new AboutPage()));
+            //            break;
+            //        case (int)MenuItemType.Login:
+            //            MenuPages.Add(id, new NavigationPage(new LoginPage()));
+            //            break;
+            //        case (int)MenuItemType.Profile:
+            //            MenuPages.Add(id, new NavigationPage(new ProfilePage()));
+            //            break;
+            //        case (int)MenuItemType.EditProfile:
+            //            MenuPages.Add(id, new NavigationPage(new EditProfilePage()));
+            //            break;
+            //    }
+            //}
+
+            //var newPage = MenuPages[id];
+
+            NavigationPage newPage = null;
+
+            switch (id)
             {
-                switch (id)
-                {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
-                    case (int)MenuItemType.Login:
-                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
-                        break;
-                    case (int)MenuItemType.Profile:
-                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
-                        break;
-                    case (int)MenuItemType.EditProfile:
-                        MenuPages.Add(id, new NavigationPage(new EditProfilePage()));
-                        break;
-                }
+                case (int)MenuItemType.Items:
+                    newPage = new NavigationPage(new ItemsPage());
+                    break;
+                case (int)MenuItemType.About:
+                    newPage = new NavigationPage(new AboutPage());
+                    break;
+                case (int)MenuItemType.Login:
+                    newPage = new NavigationPage(new LoginPage());
+                    break;
+                case (int)MenuItemType.Profile:
+                    newPage = new NavigationPage(new ProfilePage());
+                    break;
+                case (int)MenuItemType.EditProfile:
+                    newPage = new NavigationPage(new EditProfilePage());
+                    break;
+                case (int)MenuItemType.Stocks:
+                    newPage = new NavigationPage(new StocksPage());
+                    break;
+                case (int)MenuItemType.AddStock:
+                    newPage = new NavigationPage(new AddStock());
+                    break;
+                case (int)MenuItemType.AddItem:
+                    newPage = new NavigationPage(new AddItemPage());
+                    break;
+                case (int)MenuItemType.Administrating:
+                    Device.OpenUri(new Uri(HttpRequest.BackendUrl + "administrating"));
+                    return;
             }
 
-            var newPage = MenuPages[id];
-
-            if (newPage != null && Detail != newPage)
+            if (newPage != null)
             {
                 Detail = newPage;
 

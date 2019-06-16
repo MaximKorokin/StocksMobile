@@ -4,16 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="StocksMobile.Views.ItemsPage">
+             x:Class="StocksMobile.Views.StocksPage">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Button Text="Add item" Margin="0,0,0,10" Clicked="AddItem" />
-            <Grid x:Name="ItemsGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-            </Grid>
+            <Button Text="Add stock" Margin="0,0,0,10" Clicked="AddStock" />
+            <StackLayout x:Name="StocksStack">
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

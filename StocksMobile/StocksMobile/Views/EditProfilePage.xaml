@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:StocksMobile.Services;assembly=StocksMobile" 
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
@@ -19,6 +20,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+
+            <Label Text="{i18n:Translate HelloWorld}" />
 
             <Label Text="Language:" 
                    Grid.Row="0" 
@@ -68,7 +71,7 @@
                    Grid.Column="1"
                    x:Name="RepeatOldPasswordEntry" />
 
-            <Button Text="Save" Grid.Row="5" Grid.ColumnSpan="2" />
+            <Button Text="Save" Grid.Row="5" Grid.ColumnSpan="2" Clicked="Edit" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

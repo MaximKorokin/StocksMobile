@@ -6,11 +6,15 @@ namespace StocksMobile.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        Items,
         About,
         Login,
         Profile,
-        EditProfile
+        EditProfile,
+        Administrating,
+        Stocks,
+        AddStock,
+        AddItem,
     }
     public class HomeMenuItem
     {

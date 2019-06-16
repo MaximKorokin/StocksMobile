@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace StocksMobile.Models
 {
-    public class Item
+    public class Stock
     {
         public int Id { get; set; }
         public string Name { get; set; }

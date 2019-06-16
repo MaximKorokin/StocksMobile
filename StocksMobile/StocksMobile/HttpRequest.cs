@@ -9,9 +9,8 @@ namespace StocksMobile
 {
     internal static class HttpRequest
     {
+        public const string BackendUrl = "http://anceag-001-site1.itempurl.com/";
         private const string BaseUrl = "http://anceag-001-site1.itempurl.com/api/";
-
-        public static string AuthorizationToken { get; set; }
 
         public static async Task<string> Get(string url)
         {
@@ -31,7 +30,7 @@ namespace StocksMobile
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(BaseUrl + url);
             request.Method = method;
             request.AutomaticDecompression = DecompressionMethods.GZip;
-            request.Headers["Authorization"] = $"bearer {BaseUrl}";
+            request.Headers["Authorization"] = $"Bearer {CurrentUserManager.CurrentUser?.Token}";
             request.ContentType = "application/json";
             return request;
         }

@@ -1,55 +1,68 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using StocksMobile.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using StocksMobile.Models;
-using StocksMobile.Views;
-using StocksMobile.ViewModels;
-
 namespace StocksMobile.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        private MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+
+        public static int ActiveItemId { get; set; }
 
         public ItemsPage()
         {
             InitializeComponent();
-
-            BindingContext = viewModel = new ItemsViewModel();
+            LoadItems();
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        private async void LoadItems()
         {
-            var item = args.SelectedItem as Item;
-            if (item == null)
-                return;
+            string itemsString = await HttpRequest.Get("items/" + StocksPage.ActiveStockId);
+            IEnumerable<Item> items = JsonConvert.DeserializeObject<IEnumerable<Item>>(itemsString);
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            int row = 0;
+            foreach (var item in items)
+            {
+                Label itemLabel = new Label()
+                {
+                    Text = item.Name,
+                    FontSize = 20,
+                    Margin = new Thickness(0, 0, 0, 5),
+                };
+                itemLabel.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked(item.Id)));
 
-            // Manually deselect item.
-            ItemsListView.SelectedItem = null;
+                ItemsGrid.Children.Add(itemLabel, 0, row);
+
+                Button button = new Button()
+                {
+                    Text = "Move",
+                    Margin = new Thickness(5, 0, 0, 0)
+                };
+                button.Clicked += async (sender, args) =>
+                {
+                    await RootPage.NavigateFromMenu(1);
+                };
+                ItemsGrid.Children.Add(button, 1, row++);
+            }
         }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
+        private async void OnLabelClicked(int id)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await RootPage.NavigateFromMenu(1);
         }
 
-        protected override void OnAppearing()
+        public async void AddItem(object sender, EventArgs eventArgs)
         {
-            base.OnAppearing();
-
-            if (viewModel.Items.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
+            await RootPage.NavigateFromMenu((int)MenuItemType.AddItem);
         }
     }
 }
