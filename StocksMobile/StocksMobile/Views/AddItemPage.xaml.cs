@@ -30,7 +30,7 @@ namespace StocksMobile.Views
                 Name = NameEntry.Text,
                 Capacity = capacity,
             };
-            await HttpRequest.Post("items/add/" + StocksPage.ActiveStockId, JsonConvert.SerializeObject(stock));
+            await HttpRequest.Post("items/add/" + StocksPage.ActiveStock.Id, JsonConvert.SerializeObject(stock));
             await RootPage.NavigateFromMenu((int)MenuItemType.Items);
         }
     }

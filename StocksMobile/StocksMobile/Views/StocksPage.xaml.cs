@@ -16,7 +16,7 @@ namespace StocksMobile.Views
     {
         private MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
-        public static int ActiveStockId { get; set; }
+        public static Stock ActiveStock { get; set; }
 
         public StocksPage()
         {
@@ -33,19 +33,19 @@ namespace StocksMobile.Views
             {
                 Label stockLabel = new Label()
                 {
-                    Text = stock.Name,
+                    Text = $"{stock.Name}:{stock.Id}",
                     FontSize = 20,
                     Margin = new Thickness(0, 0, 0, 5)
                 };
-                stockLabel.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked(stock.Id)));
+                stockLabel.GestureRecognizers.Add(new TapGestureRecognizer((view) => OnLabelClicked(stock)));
 
                 StocksStack.Children.Add(stockLabel);
             }
         }
 
-        private async void OnLabelClicked(int id)
+        private async void OnLabelClicked(Stock stock)
         {
-            ActiveStockId = id;
+            ActiveStock = stock;
             await RootPage.NavigateFromMenu((int)MenuItemType.Items);
         }
 

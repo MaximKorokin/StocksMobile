@@ -21,9 +21,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Label Text="{i18n:Translate HelloWorld}" />
-
-            <Label Text="Language:" 
+            <Label Text="{i18n:Translate language}" 
                    Grid.Row="0" 
                    Grid.Column="0"
                    VerticalTextAlignment="Center" />
@@ -36,7 +34,7 @@
                 </Picker.Items>
             </Picker>
 
-            <Label Text="Name:" 
+            <Label Text="{i18n:Translate name}" 
                    Grid.Row="1" 
                    Grid.Column="0"
                    VerticalTextAlignment="Center" />
@@ -44,7 +42,7 @@
                    Grid.Column="1"
                    x:Name="NameEntry" />
 
-            <Label Text="Old password:" 
+            <Label Text="{i18n:Translate oldpassword}" 
                    Grid.Row="2" 
                    Grid.Column="0"
                    VerticalTextAlignment="Center" />
@@ -53,7 +51,7 @@
                    Grid.Column="1"
                    x:Name="OldPasswordEntry" />
 
-            <Label Text="New password:" 
+            <Label Text="{i18n:Translate newpassword}" 
                    Grid.Row="3" 
                    Grid.Column="0"
                    VerticalTextAlignment="Center" />
@@ -62,7 +60,7 @@
                    Grid.Column="1"
                    x:Name="NewPasswordEntry" />
 
-            <Label Text="Repeat new password:" 
+            <Label Text="{i18n:Translate repeatnewpassword}" 
                    Grid.Row="4" 
                    Grid.Column="0"
                    VerticalTextAlignment="Center" />
@@ -71,7 +69,7 @@
                    Grid.Column="1"
                    x:Name="RepeatOldPasswordEntry" />
 
-            <Button Text="Save" Grid.Row="5" Grid.ColumnSpan="2" Clicked="Edit" />
+            <Button Text="{i18n:Translate save}" Grid.Row="5" Grid.ColumnSpan="2" Clicked="Edit" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

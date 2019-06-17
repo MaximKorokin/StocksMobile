@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using StocksMobile.Views;
 
 namespace StocksMobile.Droid
 {
@@ -28,6 +29,11 @@ namespace StocksMobile.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            MainPage.GoBack();
         }
     }
 }

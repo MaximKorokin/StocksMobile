@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:StocksMobile.Services;assembly=StocksMobile" 
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="StocksMobile.Views.StocksPage">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Button Text="Add stock" Margin="0,0,0,10" Clicked="AddStock" />
+            <Label Text="{i18n:Translate mystocks}" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,10" />
+            <Button Text="{i18n:Translate createstock}" Margin="0,0,0,10" Clicked="AddStock" />
             <StackLayout x:Name="StocksStack">
             </StackLayout>
         </StackLayout>

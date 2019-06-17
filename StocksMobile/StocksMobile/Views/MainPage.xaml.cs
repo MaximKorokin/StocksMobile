@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using StocksMobile.Models;
+using StocksMobile.Services;
 
 namespace StocksMobile.Views
 {
@@ -15,8 +16,14 @@ namespace StocksMobile.Views
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
+        private static MainPage instance;
+        private static Stack<int> navigationIds = new Stack<int>();
+
         public MainPage()
         {
+            instance = this;
+
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
@@ -86,6 +93,7 @@ namespace StocksMobile.Views
             //var newPage = MenuPages[id];
 
             NavigationPage newPage = null;
+            navigationIds.Push(id);
 
             switch (id)
             {
@@ -113,6 +121,12 @@ namespace StocksMobile.Views
                 case (int)MenuItemType.AddItem:
                     newPage = new NavigationPage(new AddItemPage());
                     break;
+                case (int)MenuItemType.MoveItem:
+                    newPage = new NavigationPage(new MoveItemPage());
+                    break;
+                case (int)MenuItemType.ItemHistory:
+                    newPage = new NavigationPage(new ItemHistoryPage());
+                    break;
                 case (int)MenuItemType.Administrating:
                     Device.OpenUri(new Uri(HttpRequest.BackendUrl + "administrating"));
                     return;
@@ -126,6 +140,15 @@ namespace StocksMobile.Views
                     await Task.Delay(100);
 
                 IsPresented = false;
+            }
+        }
+
+        public async static void GoBack()
+        {
+            if (navigationIds.Count > 0)
+            {
+                navigationIds.Pop();
+                await instance.NavigateFromMenu(navigationIds.Pop());
             }
         }
     }

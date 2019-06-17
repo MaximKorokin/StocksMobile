@@ -117,7 +117,142 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloWorld" xml:space="preserve">
-    <value>Hello from App Resource</value>
+  <data name="ABOUT_EN" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="ABOUT_UA" xml:space="preserve">
+    <value>Інформація</value>
+  </data>
+  <data name="ADDITEM_EN" xml:space="preserve">
+    <value>Add item</value>
+  </data>
+  <data name="ADDITEM_UA" xml:space="preserve">
+    <value>Додати товар</value>
+  </data>
+  <data name="ADD_EN" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="ADD_UA" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="ADMINISTRATING_EN" xml:space="preserve">
+    <value>Administrating</value>
+  </data>
+  <data name="ADMINISTRATING_UA" xml:space="preserve">
+    <value>Адміністрування</value>
+  </data>
+  <data name="CAPACITY_EN" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="CAPACITY_UA" xml:space="preserve">
+    <value>Місткість</value>
+  </data>
+  <data name="CREATESTOCK_EN" xml:space="preserve">
+    <value>Create stock</value>
+  </data>
+  <data name="CREATESTOCK_UA" xml:space="preserve">
+    <value>Створити склад</value>
+  </data>
+  <data name="CREATE_EN" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CREATE_UA" xml:space="preserve">
+    <value>Створити</value>
+  </data>
+  <data name="DATE_EN" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DATE_UA" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="EDIT_EN" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EDIT_UA" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
+  <data name="HISTORY_EN" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="HISTORY_UA" xml:space="preserve">
+    <value>Історія пересувань</value>
+  </data>
+  <data name="LANGUAGE_EN" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LANGUAGE_UA" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="LOGIN_EN" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LOGIN_UA" xml:space="preserve">
+    <value>Логін</value>
+  </data>
+  <data name="LOGOUT_EN" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="LOGOUT_UA" xml:space="preserve">
+    <value>Вийти з акаунту</value>
+  </data>
+  <data name="MOVE_EN" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="MOVE_UA" xml:space="preserve">
+    <value>Перемістити</value>
+  </data>
+  <data name="MYSTOCKS_EN" xml:space="preserve">
+    <value>My stocks</value>
+  </data>
+  <data name="MYSTOCKS_UA" xml:space="preserve">
+    <value>Мої склади</value>
+  </data>
+  <data name="NAME_EN" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NAME_UA" xml:space="preserve">
+    <value>Ім'я</value>
+  </data>
+  <data name="NEWPASSWORD_EN" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="NEWPASSWORD_UA" xml:space="preserve">
+    <value>Новий пароль</value>
+  </data>
+  <data name="OLDPASSWORD_EN" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="OLDPASSWORD_UA" xml:space="preserve">
+    <value>Старий пароль</value>
+  </data>
+  <data name="PROFILE_EN" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="PROFILE_UA" xml:space="preserve">
+    <value>Профіль</value>
+  </data>
+  <data name="REMOVE_EN" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="REMOVE_UA" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="REPEATNEWPASSWORD_EN" xml:space="preserve">
+    <value>Repeat new password</value>
+  </data>
+  <data name="REPEATNEWPASSWORD_UA" xml:space="preserve">
+    <value>Повторити новий пароль</value>
+  </data>
+  <data name="SAVE_EN" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SAVE_UA" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="STOCKID_EN" xml:space="preserve">
+    <value>Stock id</value>
+  </data>
+  <data name="STOCKID_UA" xml:space="preserve">
+    <value>Id складу</value>
   </data>
 </root>

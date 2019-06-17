@@ -1,4 +1,5 @@
 ﻿using StocksMobile.Models;
+using StocksMobile.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,26 +42,26 @@ namespace StocksMobile.Views
         public static void SetLoggedOutItems()
         {
             instance.SetMenuItems(
-                new HomeMenuItem { Id = MenuItemType.Login, Title = "Login" },
-                new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
+                new HomeMenuItem { Id = MenuItemType.Login, Title = TranslateExtension.Translate("login") },
+                new HomeMenuItem { Id = MenuItemType.About, Title = TranslateExtension.Translate("about") }
                 );
         }
 
         public static void SetLoggedInUserItems()
         {
             instance.SetMenuItems(
-                new HomeMenuItem { Id = MenuItemType.Profile, Title = "Profile" },
-                new HomeMenuItem { Id = MenuItemType.Stocks, Title = "My Stocks" },
-                new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
+                new HomeMenuItem { Id = MenuItemType.Profile, Title = TranslateExtension.Translate("profile") },
+                new HomeMenuItem { Id = MenuItemType.Stocks, Title = TranslateExtension.Translate("mystocks") },
+                new HomeMenuItem { Id = MenuItemType.About, Title = TranslateExtension.Translate("about") }
                 );
         }
 
         public static void SetLoggedInAdminItems()
         {
             instance.SetMenuItems(
-                new HomeMenuItem { Id = MenuItemType.Profile, Title = "Profile" },
-                new HomeMenuItem { Id = MenuItemType.Administrating, Title = "Administrating" },
-                new HomeMenuItem { Id = MenuItemType.About, Title = "About" }
+                new HomeMenuItem { Id = MenuItemType.Profile, Title = TranslateExtension.Translate("profile") },
+                new HomeMenuItem { Id = MenuItemType.Administrating, Title = TranslateExtension.Translate("administrating") },
+                new HomeMenuItem { Id = MenuItemType.About, Title = TranslateExtension.Translate("about") }
                 );
         }
     }

@@ -18,19 +18,34 @@ namespace StocksMobile.Services
 
         public string Text { get; set; }
 
+        private static TranslateExtension instance;
+
+        static TranslateExtension()
+        {
+            instance = new TranslateExtension();
+        }
+
         public object ProvideValue(IServiceProvider serviceProvider)
         {
             if (Text == null)
                 return "";
 
-            var ci = CrossMultilingual.Current.CurrentCultureInfo;
-            var translation = resmgr.GetString(Text, ci);
-
+            //var ci = CrossMultilingual.Current.CurrentCultureInfo;
+            //var translation = resmgr.GetString(Text, ci);
+            string s = $"{Text.ToUpper()}_{CurrentUserManager.CurrentUser?.Language.ToUpper() ?? "EN"}";
+            var translation = resmgr.GetString(s);
+            
             if (translation == null)
             {
                 translation = Text;
             }
             return translation;
+        }
+
+        public static string Translate(string str)
+        {
+            instance.Text = str;
+            return (string)instance.ProvideValue(null);
         }
     }
 }

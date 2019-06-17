@@ -15,6 +15,8 @@ namespace StocksMobile.Models
         Stocks,
         AddStock,
         AddItem,
+        MoveItem,
+        ItemHistory,
     }
     public class HomeMenuItem
     {

@@ -5,15 +5,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="StocksMobile.Views.AddStock">
+             x:Class="StocksMobile.Views.ItemHistoryPage">
     <ContentPage.Content>
-        <StackLayout Margin="20">
-            <Label Text="{i18n:Translate createstock}" FontSize="Large" Margin="0,0,0,10" HorizontalOptions="Center"/>
-            <Label Text="{i18n:Translate name}" />
-            <Entry x:Name="NameEntry" />
-            <Label Text="{i18n:Translate capacity}" />
-            <Entry x:Name="CapacityEntry" Keyboard="Numeric" />
-            <Button Text="{i18n:Translate create}" Clicked="CreateStock" Margin="10" />
+        <StackLayout Margin="10" x:Name="StatesStack">
+            <Label Grid.Row="0" Grid.ColumnSpan="2" x:Name="ItemNameLabel" HorizontalOptions="Center" FontSize="Large" Margin="0,0,0,10" />
+            <Button Text="{i18n:Translate remove}" Margin="0,0,0,10" Clicked="RemoveItem" x:Name="RemoveButton" />
+            <Grid x:Name="StatesGrid">
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

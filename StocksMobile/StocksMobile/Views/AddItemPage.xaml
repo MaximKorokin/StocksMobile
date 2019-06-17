@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:StocksMobile.Services;assembly=StocksMobile" 
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="StocksMobile.Views.AddItemPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Name" />
+            <Label Text="{i18n:Translate name}" />
             <Entry x:Name="NameEntry" />
-            <Label Text="Capacity" />
+            <Label Text="{i18n:Translate capacity}" />
             <Entry x:Name="CapacityEntry" Keyboard="Numeric" />
-            <Button Text="Add" Clicked="AddItem" Margin="10" />
+            <Button Text="{i18n:Translate add}" Clicked="AddItem" Margin="10" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
